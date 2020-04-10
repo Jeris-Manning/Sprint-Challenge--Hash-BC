@@ -5,13 +5,27 @@ from hashtables import (HashTable,
                         hash_table_retrieve,
                         hash_table_resize)
 
-
+ht = HashTable(16)
+print(len(ht.storage))
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
 
     """
     YOUR CODE HERE
     """
+    if len(ht.storage) < length:
+        hash_table_resize(ht)
+    for parcels in weights:
+        index = 0
+        hash_table_insert(ht, index, parcels)
+        pair = limit - parcels
+        print(pair)
+        index += 1
+
+
+
+
+
 
     return None
 
