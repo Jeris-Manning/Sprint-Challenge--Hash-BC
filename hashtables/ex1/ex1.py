@@ -15,12 +15,21 @@ def get_indices_of_item_weights(weights, length, limit):
     """
     if len(ht.storage) < length:
         hash_table_resize(ht)
-    for parcels in weights:
-        index = 0
-        hash_table_insert(ht, index, parcels)
-        pair = limit - parcels
-        print(pair)
-        index += 1
+    counter = 0
+    for weight in weights:
+        hash_table_insert(ht, limit - weight, counter)
+        if hash_table_retrieve(ht, weight) != None:
+            if counter > hash_table_retrieve(ht, weight):
+                print(counter, hash_table_retrieve(ht, weight))
+                return(counter, hash_table_retrieve(ht, weight))
+            else:
+                print(hash_table_retrieve(ht, weight), counter)
+                return(hash_table_retrieve(ht, weight), counter)
+
+
+        counter += 1
+
+
 
 
 
