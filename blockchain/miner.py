@@ -26,6 +26,8 @@ def proof_of_work(last_proof):
     proof = 0
     #  TODO: Your code here
 
+    requests()
+
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
 
